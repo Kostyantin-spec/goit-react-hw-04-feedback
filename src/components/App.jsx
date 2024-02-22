@@ -4,28 +4,27 @@ import { Sections } from './Section/section';
 import { Notification } from './Notification/notification';
 import { Buttons } from './FeedbackOptions/feedbackOptions';
 
-
-
 export const App = () => {
-  
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
   const onLeaveFeedback = state => {
-
     switch (state) {
-      case 'good': setGood(prevGood => prevGood + 1);
+      case 'good':
+        setGood(prevGood => prevGood + 1);
         break;
-      
-      case 'neutral': setNeutral(prevNeutral => prevNeutral + 1);
+
+      case 'neutral':
+        setNeutral(prevNeutral => prevNeutral + 1);
         break;
-        
-      case 'bad': setBad(prevBad => prevBad + 1);
+
+      case 'bad':
+        setBad(prevBad => prevBad + 1);
         break;
-      
-      default: break;
-        
+
+      default:
+        break;
     }
   };
 
@@ -38,7 +37,6 @@ export const App = () => {
   const counterPositiveFeedbackPercentage = () => {
     return Math.round((good / total) * 100) || 0;
   };
-
 
   const namesKeys = Object.keys({ good, neutral, bad });
   const totalPercentage = counterPositiveFeedbackPercentage();
@@ -64,5 +62,4 @@ export const App = () => {
       </Sections>
     </div>
   );
-  
 };
